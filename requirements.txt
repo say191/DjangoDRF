@@ -1,0 +1,4 @@
+Django
+Pillow
+Psycopg2-binary
+Djangorestframework
