@@ -3,3 +3,4 @@ Pillow
 Psycopg2-binary
 Djangorestframework
 django-filter
+python-dotenv
