@@ -6,6 +6,8 @@ from rest_framework.filters import OrderingFilter
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from users.services import create_stripe_product_and_price, create_stripe_session
+from datetime import datetime
 
 
 class UserCreateAPIView(generics.CreateAPIView):
@@ -53,3 +55,15 @@ class PaymentListAPIView(generics.ListAPIView):
     filterset_fields = ('paid_course', 'paid_lesson', 'pay_method')
     orderinf_fields = ('pay_date',)
     permission_classes = [IsAuthenticated]
+
+
+class PaymentCreateApiView(generics.CreateAPIView):
+    serializer_class = PaymentSerializer
+    permission_classes = [IsAuthenticated,]
+
+    def perform_create(self, serializer):
+        payment = serializer.save()
+        stripe_price_id = create_stripe_product_and_price(payment)
+        payment.payment_link, payment.payment_id, payment.status = create_stripe_session(stripe_price_id)
+        payment.pay_date = datetime.now().date()
+        payment.save()

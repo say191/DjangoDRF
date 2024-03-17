@@ -13,5 +13,6 @@ urlpatterns = [
     path('delete/<int:pk>/', views.UserDestroyAPIView.as_view(), name='user_delete'),
     path('payments/', views.PaymentListAPIView.as_view(), name='payment_list'),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('payment/create/', views.PaymentCreateApiView.as_view(), name='payment_create')
 ]
