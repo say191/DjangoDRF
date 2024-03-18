@@ -60,7 +60,7 @@ class Command(BaseCommand):
         payment2 = Payment.objects.create(
             user=user2,
             pay_date=datetime.datetime.now().date(),
-            paid_lesson=lesson2,
+            paid_course=course2,
             value=25000,
             pay_method='Cash'
         )
