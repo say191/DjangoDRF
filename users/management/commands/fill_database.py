@@ -23,7 +23,7 @@ class Command(BaseCommand):
         user1 = User.objects.create(email='zero@zero.ru', phone='+71111111111')
         user1.set_password('000')
         user1.save()
-        user2 = User.objects.create(email='second@second.ru', phone='+72222222222')
+        user2 = User.objects.create(email='skykyrim@yandex.ru', phone='+72222222222')
         user2.set_password('222')
         user2.save()
         user3 = User.objects.create(email='third@third.ru', phone='+73333333333')
@@ -35,9 +35,9 @@ class Command(BaseCommand):
         user4.groups.add(group)
         user4.save()
 
-        course1 = Course.objects.create(title='Django', description='haha')
+        course1 = Course.objects.create(title='Django', description='haha', owner=user1)
         course1.save()
-        course2 = Course.objects.create(title='DRF', description='hehe')
+        course2 = Course.objects.create(title='DRF', description='hehe', owner=user2)
         course2.save()
 
         lesson1 = Lesson.objects.create(title='Generics', description='lala', course=course1, owner=user1)

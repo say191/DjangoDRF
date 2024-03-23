@@ -1,9 +1,12 @@
-Django
-Pillow
-Psycopg2-binary
-Djangorestframework
-django-filter
-python-dotenv
-djangorestframework-simplejwt
-drf-yasg
-stripe
+Django==4.2.7
+pillow==10.2.0
+psycopg2-binary==2.9.9
+djangorestframework==3.14.0
+django-filter==23.5
+python-dotenv==1.0.1
+djangorestframework-simplejwt==5.3.1
+drf-yasg==1.21.7
+stripe==8.7.0
+celery==5.3.6
+redis==5.0.1
+ django-celery-beat==2.6.0
